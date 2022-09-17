@@ -8,6 +8,10 @@ jobs:
   run-github-actions:
     runs-on: ubuntu-latest
     steps:
+      - name: List files
+        run: |
+          ls
+          pwd
       - name: Simple JS Action
       # references a public github repo with a v1
         uses: actions/hello-world-javascript-action@v1
