@@ -1,3 +1,8 @@
+# Environment Variables
+# -----------------------
+#  $GITHUB_SHA - commit id that triggered the workflow to run
+#  $GITHUB_REPOSITORY - username/name of repo
+#  $GITHUB_WORKSPACE - use pwd to see
 
 
 name: Actions Workflow
@@ -12,6 +17,13 @@ jobs:
         run: |
           pwd
           ls -a
+
+          echo $GITHUB_SHA
+          echo $GITHUB_REPOSITORY
+          echo $GITHUB_WORKSPACE
+          echo "${{github.token}}"
+        # git clone git@github:$GITHUB_REPOSITORY
+        # git checkout $GITHUB_SHA
       - name: Checkout
         uses: actions/checkout@v1
       - name: List files after Checkout
