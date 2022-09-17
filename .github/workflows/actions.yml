@@ -10,8 +10,14 @@ jobs:
     steps:
       - name: List files
         run: |
-          ls
           pwd
+          ls -a
+      - name: Checkout
+        uses: actions/checkout@v1
+      - name: List files after Checkout
+        run: |
+          pwd
+          ls -a
       - name: Simple JS Action
       # references a public github repo with a v1
         uses: actions/hello-world-javascript-action@v1
@@ -21,4 +27,5 @@ jobs:
       - name: Log Greeting Time
       # echo the output of this action
         run: echo "${{steps.greet.outputs.time}}"
+
 
